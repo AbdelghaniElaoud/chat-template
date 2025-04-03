@@ -2,7 +2,7 @@
        <header class="app-header">
         <nav class="main-header !h-[3.75rem]" aria-label="Global">
           <div class="main-header-container ps-[0.725rem] pe-[1rem] ">
-      
+
             <div class="header-content-left">
               <!-- Start::header-element -->
               <div class="header-element">
@@ -27,27 +27,27 @@
               </div>
               <!-- End::header-element -->
             </div>
-      
-      
-      
+
+
+
             <div class="header-content-right">
-      
+
               <div class="header-element py-[1rem] md:px-[0.65rem] px-2 header-search">
                 <button aria-label="button" type="button" data-hs-overlay="#search-modal"
                   class="inline-flex flex-shrink-0 justify-center items-center gap-2  rounded-full font-medium focus:ring-offset-0 focus:ring-offset-white transition-all text-xs dark:bg-bgdark dark:hover:bg-black/20 dark:text-[#8c9097] dark:text-white/50 dark:hover:text-white dark:focus:ring-white/10 dark:focus:ring-offset-white/10">
                   <i class="bx bx-search-alt-2 header-link-icon"></i>
                 </button>
               </div>
-      
+
               <!-- start header country -->
- 
+
               <div class="header-element py-[1rem] md:px-[0.65rem] px-2  header-country hs-dropdown ti-dropdown  hidden sm:block [--placement:bottom-left]">
-            
+
                 <button id="dropdown-flag" type="button"
                   class="hs-dropdown-toggle ti-dropdown-toggle !p-0 flex-shrink-0  !border-0 !rounded-full !shadow-none">
                   <img src="./assets/images/flags/us_flag.jpg" alt="flag-img" class="h-[1.25rem] w-[1.25rem] rounded-full">
                 </button>
-      
+
                 <div class="hs-dropdown-menu ti-dropdown-menu min-w-[10rem] hidden !-mt-3" aria-labelledby="dropdown-flag">
                   <div class="ti-dropdown-divider divide-y divide-gray-200 dark:divide-white/10">
                     <div class="py-2 first:pt-0 last:pb-0">
@@ -134,7 +134,7 @@
                 </div>
               </div>
               <!-- end header country -->
-      
+
               <!-- light and dark theme -->
               <div class="header-element header-theme-mode hidden !items-center sm:block !py-[1rem] md:!px-[0.65rem] px-2">
                 <a aria-label="anchor"
@@ -149,7 +149,7 @@
                 </a>
               </div>
               <!-- End light and dark theme -->
-      
+
               <!-- Header Cart item -->
               <div class="header-element cart-dropdown hs-dropdown ti-dropdown md:!block !hidden py-[1rem] md:px-[0.65rem] px-2  [--placement:bottom-right] rtl:[--placement:bottom-left]">
                 <button id="dropdown-cart" type="button"
@@ -160,10 +160,10 @@
                       id="cart-icon-badge">{{ cartItemCount }}</span>
                   </span>
                 </button>
-      
+
                 <!-- <div class="main-header-dropdown bg-white !-mt-3 !p-0 hs-dropdown-menu ti-dropdown-menu w-[22rem] border-0 border-defaultborder hidden" aria-labelledby="dropdown-cart" > -->
                 <div class="main-header-dropdown !-mt-3 !p-0 hs-dropdown-menu ti-dropdown-menu bg-white !w-[22rem] border-0 border-defaultborder hidden !m-0" >
-      
+
                   <div class="ti-dropdown-header !bg-transparent flex justify-between items-center !m-0 !p-4">
                     <p class="text-defaulttextcolor  !text-[1.0625rem] dark:text-[#8c9097] dark:text-white/50 font-semibold">Cart Items</p>
                     <a href="javascript:void(0)"
@@ -176,20 +176,20 @@
                   <ul class="list-none mb-0" id="header-cart-items-scroll">
                     <li class="ti-dropdown-item border-b dark:border-defaultborder/10 border-defaultborder " (click)="handleCardClick($event)" id="row1">
                       <div class="flex items-start cart-dropdown-item" >
-      
+
                         <img src="./assets/images/ecommerce/jpg/1.jpg" alt="img"
                           class="!h-[1.75rem] !w-[1.75rem] leading-[1.75rem] text-[0.65rem] rounded-[50%] br-5 me-3">
-      
+
                         <div class="grow">
                           <div class="flex items-start justify-between mb-0">
                             <div class="mb-0 !text-[0.8125rem] text-[#232323] font-semibold dark:text-[#8c9097] dark:text-white/50">
                               <a routerLink="/pages/ecommerce/cart">SomeThing Phone</a>
                             </div>
-      
+
                             <div class="inline-flex">
                               <span class="text-black mb-1 dark:text-white !font-medium">$1,299.00</span>
                               <a aria-label="anchor" (click)="removeRow('row1')" class="header-cart-remove ltr:float-right rtl:float-left dropdown-item-close" ><i
-                                  class="ti ti-trash"                           
+                                  class="ti ti-trash"
                                   ></i></a>
                             </div>
                           </div>
@@ -202,7 +202,7 @@
                         </div>
                       </div>
                     </li>
-      
+
                     <li class="ti-dropdown-item border-b dark:border-defaultborder/10 border-defaultborder" (click)="handleCardClick($event)" id="row2">
                       <div class="flex items-start cart-dropdown-item">
                         <img src="./assets/images/ecommerce/jpg/3.jpg" alt="img"
@@ -320,11 +320,11 @@
                         data-abc="true">continue shopping <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                   </div>
-      
+
                 </div>
               </div>
               <!--End Header cart item  -->
-      
+
               <!--Header Notifictaion -->
               <div class="header-element py-[1rem] md:px-[0.65rem] px-2 notifications-dropdown header-notification hs-dropdown ti-dropdown !hidden md:!block [--placement:bottom-left]">
                 <button id="dropdown-notification" type="button"
@@ -340,7 +340,7 @@
                 </button>
                 <div class="main-header-dropdown !-mt-3 !p-0 hs-dropdown-menu ti-dropdown-menu bg-white !w-[22rem] border-0 border-defaultborder hidden !m-0"
                   aria-labelledby="dropdown-notification">
-      
+
                   <div class="ti-dropdown-header !m-0 !p-4 !bg-transparent flex justify-between items-center">
                     <p class="mb-0 text-[1.0625rem] text-defaulttextcolor font-semibold dark:text-[#8c9097] dark:text-white/50">Notifications</p>
                     <span class="text-[0.75em] py-[0.25rem/2] px-[0.45rem] font-[600] rounded-sm bg-secondary/10 text-secondary"
@@ -473,19 +473,19 @@
                 </div>
               </div>
               <!--End Header Notifictaion -->
-      
+
               <!-- Related Apps -->
               <div class="header-element header-apps dark:text-[#8c9097] dark:text-white/50 py-[1rem] md:px-[0.65rem] px-2 hs-dropdown ti-dropdown md:!block !hidden [--placement:bottom-left]">
-      
+
                 <button aria-label="button" id="dropdown-apps" type="button"
                   class="hs-dropdown-toggle ti-dropdown-toggle !p-0 !border-0 flex-shrink-0  !rounded-full !shadow-none text-xs">
                   <i class="bx bx-grid-alt header-link-icon text-[1.125rem]"></i>
                 </button>
-      
+
                 <div
                   class="main-header-dropdown !-mt-3 hs-dropdown-menu ti-dropdown-menu !w-[22rem] border-0 border-defaultborder   hidden"
                   aria-labelledby="dropdown-apps">
-      
+
                   <div class="p-4">
                     <div class="flex items-center justify-between">
                       <p class="mb-0 text-defaulttextcolor text-[1.0625rem] dark:text-[#8c9097] dark:text-white/50 font-semibold">Related Apps</p>
@@ -567,16 +567,16 @@
                       View All
                     </a>
                   </div>
-      
+
                 </div>
               </div>
               <!--End Related Apps -->
-      
+
               <!-- Fullscreen -->
               <div class="header-element header-fullscreen py-[1rem] md:px-[0.65rem] px-2">
                 <!-- Start::header-link -->
                 <a aria-label="anchor" appFullscreen  (click)="toggleFullScreen()"
-                class="inline-flex flex-shrink-0 justify-center items-center gap-2" 
+                class="inline-flex flex-shrink-0 justify-center items-center gap-2"
                 [ngClass]="{
                   '!rounded-full': !isFullScreen,
                   'font-medium': true,
@@ -585,26 +585,26 @@
                 <i class="bx bx-fullscreen full-screen-open header-link-icon" [hidden]="!fullScreenIconVisible"></i>
                 <i class="bx bx-exit-fullscreen full-screen-close header-link-icon" [hidden]="!exitFullScreenIconVisible"></i>
              </a>
-             
+
                 <!-- End::header-link -->
               </div>
               <!-- End Full screen -->
-      
+
               <!-- Header Profile -->
               <div class="header-element md:!px-[0.65rem] px-2 hs-dropdown !items-center ti-dropdown [--placement:bottom-left]">
-      
+
                 <button id="dropdown-profile" type="button"
                   class="hs-dropdown-toggle ti-dropdown-toggle !gap-2 !p-0 flex-shrink-0 sm:me-2 me-0 !rounded-full !shadow-none text-xs align-middle !border-0 !shadow-transparent ">
                   <img class="inline-block rounded-full " src="./assets/images/faces/9.jpg"  width="32" height="32" alt="Image Description">
                 </button>
                 <div class="md:block hidden dropdown-profile">
-                  <p class="font-semibold mb-0 leading-none text-[#536485] text-[0.813rem] ">Json Taylor</p>
-                  <span class="opacity-[0.7] font-normal text-[#536485] block text-[0.6875rem] ">Web Designer</span>
+                  <p class="font-semibold mb-0 leading-none text-[#536485] text-[0.813rem] ">{{username}}</p>
+<!--                  <span class="opacity-[0.7] font-normal text-[#536485] block text-[0.6875rem] ">Web Designer</span>-->
                 </div>
                 <div
                   class="hs-dropdown-menu ti-dropdown-menu !-mt-3 border-0 w-[11rem] !p-0 border-defaultborder hidden main-header-dropdown  pt-0 overflow-hidden header-profile-dropdown dropdown-menu-end"
                   aria-labelledby="dropdown-profile">
-      
+
                   <ul class="text-defaulttextcolor font-medium dark:text-[#8c9097] dark:text-white/50">
                     <li>
                       <a class="w-full ti-dropdown-item !text-[0.8125rem] !gap-x-0  !p-[0.65rem] !inline-flex" routerLink="/pages/profile">
@@ -625,13 +625,13 @@
                           class="ti ti-wallet text-[1.125rem] me-2 opacity-[0.7]"></i>Bal: $7,12,950</a></li>
                     <li><a class="w-full ti-dropdown-item !text-[0.8125rem] !p-[0.65rem] !gap-x-0 !inline-flex" routerLink="/pages/chat"><i
                           class="ti ti-headset text-[1.125rem] me-2 opacity-[0.7]"></i>Support</a></li>
-                    <li><a class="w-full ti-dropdown-item !text-[0.8125rem] !p-[0.65rem] !gap-x-0 !inline-flex" routerLink="/authentication/sign-in/cover"><i
+                    <li><a class="w-full ti-dropdown-item !text-[0.8125rem] !p-[0.65rem] !gap-x-0 !inline-flex" (click)="handleLogout()"><i
                           class="ti ti-logout text-[1.125rem] me-2 opacity-[0.7]"></i>Log Out</a></li>
                   </ul>
                 </div>
               </div>
               <!-- End Header Profile -->
-      
+
               <!-- Switcher Icon -->
               <div class="header-element md:px-[0.48rem]">
                 <button aria-label="button" type="button"
@@ -641,7 +641,7 @@
                 </button>
               </div>
               <!-- Switcher Icon -->
-      
+
               <!-- End::header-element -->
             </div>
           </div>

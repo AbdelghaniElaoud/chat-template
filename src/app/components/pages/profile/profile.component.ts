@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Gallery, GalleryItem, GalleryModule, ImageItem, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import {  Lightbox, LightboxModule } from 'ng-gallery/lightbox';
 import { SharedModule } from '../../../shared/shared.module';
 import { SimplebarAngularModule } from 'simplebar-angular';
+import {AuthService} from "../../../shared/services/authentication/auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -11,14 +12,15 @@ import { SimplebarAngularModule } from 'simplebar-angular';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
-  constructor(public gallery: Gallery, public lightbox: Lightbox) {}
+export class ProfileComponent implements OnInit{
+  username! : string;
+  constructor(public gallery: Gallery, public lightbox: Lightbox, public authService : AuthService) {}
   items: GalleryItem[] = [];
 
   imageData=DATA;
   ngOnInit() {
     /** Basic Gallery Example */
-
+    this.username = this.authService.username;
     // Creat gallery items
     this.items = this.imageData.map(
       (item) => new ImageItem({ src: item.srcUrl, thumb: item.previewUrl })

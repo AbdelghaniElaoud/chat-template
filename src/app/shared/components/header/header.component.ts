@@ -1,5 +1,6 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import { Menu, NavService } from '../../services/nav.service';
+import {AuthService} from "../../services/authentication/auth.service";
 interface Item {
   id: number;
   name: string;
@@ -13,13 +14,14 @@ interface Item {
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   cartItemCount: number = 5;
   notificationCount: number = 5;
   public isCollapsed = true;
+  username! : string;
 
   constructor(public navServices: NavService,
-    private elementRef: ElementRef,private renderer:Renderer2) {
+    private elementRef: ElementRef,private renderer:Renderer2, private authService : AuthService) {
   }
   isFullScreen = false;
   fullScreenIconVisible = true;
@@ -101,7 +103,7 @@ export class HeaderComponent {
 
       // document.querySelector('.slide-menu')?.classList.add('double-menu-active');
     }
-   
+
     if (window.innerWidth <= 992) {
       html?.setAttribute(
         'data-toggled',
@@ -121,8 +123,10 @@ export class HeaderComponent {
       this.navServices.items.subscribe((menuItems) => {
         this.items = menuItems;
       });
+
+      this.username = this.authService.username;
     }
-  
+
   Search(searchText: string) {
     if (!searchText) return this.menuItems = [];
     // items array which stores the elements
@@ -143,7 +147,7 @@ export class HeaderComponent {
       //  checking whether the menuItems having children property or not if there was no children the return
       if (!menuItems.children) return false;
       menuItems.children.filter((subItems:Menu) => {
-        if (!subItems?.title) return false; 
+        if (!subItems?.title) return false;
         if (subItems.type === 'link' && subItems.title.toLowerCase().includes(searchText)) {
           if( subItems.title.toLowerCase().startsWith(searchText)){         // If you want to get all the data with matching to letter entered remove this line(condition and leave items.push(subItems))
             items.push(subItems as Item);
@@ -155,7 +159,7 @@ export class HeaderComponent {
           if (subSubItems.title?.toLowerCase().includes(searchText)) {
             if( subSubItems.title.toLowerCase().startsWith(searchText)){ // If you want to get all the data with matching to letter entered remove this line(condition and leave items.push(subSubItems))
               items.push(subSubItems as Item);
-              
+
             }
           }
         });
@@ -174,7 +178,7 @@ export class HeaderComponent {
   }
 
   //  Used to clear previous search result
-  clearSearch() {    
+  clearSearch() {
     this.text = '';
     this.menuItems = [];
     this.SearchResultEmpty = false;
@@ -188,7 +192,7 @@ export class HeaderComponent {
     if (rowElement) {
       rowElement.remove();
 
-      
+
     }
     this.cartItemCount--;
     this.isCartEmpty = this.cartItemCount === 0;
@@ -198,7 +202,7 @@ export class HeaderComponent {
     if (rowElement) {
       rowElement.remove();
 
-      
+
     }
   }
   removeNotify(rowId: string) {
@@ -206,7 +210,7 @@ export class HeaderComponent {
     if (rowElement) {
       rowElement.remove();
 
-      
+
     }
     this.notificationCount--;
     this.isNotifyEmpty = this.notificationCount === 0;
@@ -214,5 +218,9 @@ export class HeaderComponent {
   handleCardClick(event: MouseEvent) {
     // Prevent the click event from propagating to the container
     event.stopPropagation();
+  }
+
+  handleLogout() {
+      this.authService.logout();
   }
 }

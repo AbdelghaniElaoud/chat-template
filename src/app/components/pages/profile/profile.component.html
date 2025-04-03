@@ -14,7 +14,7 @@
                                     </div>
                                     <div class="flex-grow main-profile-info">
                                         <div class="flex items-center !justify-between">
-                                            <h6 class="font-semibold mb-1 text-white text-[1rem]">Json Taylor</h6>
+                                            <h6 class="font-semibold mb-1 text-white text-[1rem]">{{username}}</h6>
                                             <button type="button" class="ti-btn ti-btn-light !font-medium !gap-0"><i class="ri-add-line me-1 align-middle inline-block"></i>Follow</button>
                                         </div>
                                         <p class="mb-1 !text-white  opacity-[0.7]">Chief Executive Officer (C.E.O)</p>
@@ -893,15 +893,15 @@
                                                         @for( img of imageData;track $index ){
 
                                                             <div class="xxl:col-span-3 xl:col-span-3 lg:col-span-3 md:col-span-6 col-span-12">
-                                                              
-    
-    
+
+
+
                                                                 <a  class="glightbox card" data-gallery="gallery1" >
                                                                     <img [src]="img.srcUrl"alt="image" class="rounded-md w-full">
                                                                 </a>
                                                             </div>
                                                         }
-                                                  
+
                                                         <div class="col-span-12">
                                                             <div class="text-center mt-6">
                                                                 <button type="button" class="ti-btn ti-btn-primary !font-medium">Show All</button>
