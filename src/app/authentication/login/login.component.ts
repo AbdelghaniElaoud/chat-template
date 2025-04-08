@@ -80,8 +80,8 @@ export class LoginComponent implements OnInit{
       this.authService.login(username, password).subscribe({
         next : data => {
           this.authService.loadProfile(data);
-          this.sessionStorageService.setToken(data["access-token"]);
-          this.sessionStorageService.setRefreshToken(data["refresh-token"]);
+          this.sessionStorageService.setToken(data["accessToken"]);
+          this.sessionStorageService.setRefreshToken(data["refreshToken"]);
 
           this.router.navigateByUrl("/dashboard/crm");
           this.showLoader = true;
