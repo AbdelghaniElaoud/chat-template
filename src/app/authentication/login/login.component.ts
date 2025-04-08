@@ -10,6 +10,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { FirebaseService } from '../../shared/services/firebase.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import {AuthService} from "../../shared/services/authentication/auth.service";
+import {SessionStorageService} from "../../shared/services/sessionStorage/session.storage.service";
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit{
     private formBuilder: FormBuilder,
     private renderer: Renderer2,
     private firebaseService: FirebaseService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private sessionStorageService : SessionStorageService
   ) {
     // AngularFireModule.initializeApp(environment.firebase);
 
@@ -50,6 +52,8 @@ export class LoginComponent implements OnInit{
       username : this.formBuilder.control(""),
       password : this.formBuilder.control(""),
     })
+    this.formLogin.get('username')?.setValue('admin');
+    this.formLogin.get('password')?.setValue('12345');
 
   }
    firestoreModule = this.firebaseService.getFirestore();
@@ -76,6 +80,9 @@ export class LoginComponent implements OnInit{
       this.authService.login(username, password).subscribe({
         next : data => {
           this.authService.loadProfile(data);
+          this.sessionStorageService.setToken(data["access-token"]);
+          this.sessionStorageService.setRefreshToken(data["refresh-token"]);
+
           this.router.navigateByUrl("/dashboard/crm");
           this.showLoader = true;
         },
@@ -106,8 +113,6 @@ export class LoginComponent implements OnInit{
   }
 
   validateForm(email: string, password: string) {
-    console.log("The email is ", email)
-    console.log("The password is ", password)
     if (email.length === 0) {
       this.errorMessage = 'please enter email id';
       return false;

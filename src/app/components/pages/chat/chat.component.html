@@ -1,284 +1,124 @@
 <div class="main-chart-wrapper p-2 gap-2 lg:flex">
-    <div class="chat-info border dark:border-defaultborder/10">
-        <a aria-label="anchor" href="javascript:void(0)" class="ti-btn bg-secondary text-white !font-medium ti-btn-icon !rounded-full chat-add-icon">
-            <i class="ri-add-line"></i>
-        </a>
-        <div class="flex items-center justify-between w-full p-4 border-b dark:border-defaultborder/10">
-            <div>
-                <h5 class="font-semibold mb-0 text-[1.25rem] !text-defaulttextcolor dark:text-defaulttextcolor/70">Messages</h5>
-            </div>
-            <div class="hs-dropdown ti-dropdown">
-                <button aria-label="button" class="ti-btn ti-btn-icon ti-btn-secondary text-secondary"
-                    type="button" aria-expanded="false">
-                    <i class="ri-settings-3-line"></i>
-                </button>
-                <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
-                    <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                        href="javascript:void(0);">Action</a></li>
-                    <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                        href="javascript:void(0);">Another action</a></li>
-                    <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                        href="javascript:void(0);">Something else here</a></li>
-                  </ul>
-            </div>
-        </div>
-        <div class="chat-search p-4 border-b dark:border-defaultborder/10">
-            <div class="input-group">
-                <input type="text" class="form-control !bg-light border-0 !rounded-s-md" placeholder="Search Chat"
-                    aria-describedby="button-addon2">
-                <button aria-label="button" class="ti-btn ti-btn-light !rounded-s-none !mb-0" type="button" id="button-addon2"><i
-                        class="ri-search-line text-[#8c9097] dark:text-white/50"></i></button>
-            </div>
-        </div>
-        <nav class="flex border-b border-defaultborder dark:border-defaultborder/10" aria-label="Tabs">
-            <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer border-e dark:border-defaultborder/10 text-defaulttextcolor py-2 px-4 flex-grow  text-sm font-medium text-center rounded-none active" id="users-item" data-hs-tab="#users-tab-pane" aria-controls="users-tab-pane">
-                <i
-                class="ri-history-line me-1 align-middle inline-block cursor-pointer w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Recent
-            </a>
-            <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer border-e dark:border-defaultborder/10 text-defaulttextcolor py-2 px-4 text-sm flex-grow font-medium text-center  rounded-none " id="groups-item" data-hs-tab="#groups-tab-pane" aria-controls="groups-tab-pane">
-                <i
-                class="ri-group-2-line me-1 align-middle inline-block w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Groups
-            </a>
-            <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer text-defaulttextcolor py-2 px-4 text-sm flex-grow font-medium text-center  rounded-none " id="calls-item" data-hs-tab="#calls-tab-pane" aria-controls="calls-tab-pane">
-                <i class="ri-phone-line me-1 align-middle inline-block w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Calls
-              </a>
-        </nav>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active !border-0 chat-users-tab" id="users-tab-pane" aria-labelledby="users-item" role="tabpanel" tabindex="0">
-              <div class="main-chart-wrapper p-2 gap-2 lg:flex">
-                <div class="chat-info border dark:border-defaultborder/10">
-                  <a aria-label="anchor" href="javascript:void(0)" class="ti-btn bg-secondary text-white !font-medium ti-btn-icon !rounded-full chat-add-icon">
-                    <i class="ri-add-line"></i>
-                  </a>
-                  <div class="flex items-center justify-between w-full p-4 border-b dark:border-defaultborder/10">
-                    <div>
-                      <h5 class="font-semibold mb-0 text-[1.25rem] !text-defaulttextcolor dark:text-defaulttextcolor/70">Messages</h5>
-                    </div>
-                    <div class="hs-dropdown ti-dropdown">
-                      <button aria-label="button" class="ti-btn ti-btn-icon ti-btn-secondary text-secondary"
-                              type="button" aria-expanded="false">
-                        <i class="ri-settings-3-line"></i>
-                      </button>
-                      <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
-                        <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                               href="javascript:void(0);">Action</a></li>
-                        <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                               href="javascript:void(0);">Another action</a></li>
-                        <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                               href="javascript:void(0);">Something else here</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="chat-search p-4 border-b dark:border-defaultborder/10">
-                    <div class="input-group">
-                      <input type="text" class="form-control !bg-light border-0 !rounded-s-md" placeholder="Search Chat"
-                             aria-describedby="button-addon2">
-                      <button aria-label="button" class="ti-btn ti-btn-light !rounded-s-none !mb-0" type="button" id="button-addon2"><i
-                        class="ri-search-line text-[#8c9097] dark:text-white/50"></i></button>
-                    </div>
-                  </div>
-                  <nav class="flex border-b border-defaultborder dark:border-defaultborder/10" aria-label="Tabs">
-                    <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer border-e dark:border-defaultborder/10 text-defaulttextcolor py-2 px-4 flex-grow  text-sm font-medium text-center rounded-none active" id="users-item" data-hs-tab="#users-tab-pane" aria-controls="users-tab-pane">
-                      <i
-                        class="ri-history-line me-1 align-middle inline-block cursor-pointer w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Recent
-                    </a>
-                    <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer border-e dark:border-defaultborder/10 text-defaulttextcolor py-2 px-4 text-sm flex-grow font-medium text-center  rounded-none " id="groups-item" data-hs-tab="#groups-tab-pane" aria-controls="groups-tab-pane">
-                      <i
-                        class="ri-group-2-line me-1 align-middle inline-block w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Groups
-                    </a>
-                    <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer text-defaulttextcolor py-2 px-4 text-sm flex-grow font-medium text-center  rounded-none " id="calls-item" data-hs-tab="#calls-tab-pane" aria-controls="calls-tab-pane">
-                      <i class="ri-phone-line me-1 align-middle inline-block w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Calls
-                    </a>
-                  </nav>
-                  <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active !border-0 chat-users-tab" id="users-tab-pane" aria-labelledby="users-item" role="tabpanel" tabindex="0">
-                      <ngx-simplebar class="chat-users-tab">
-                        <ul class="list-none mb-0 mt-2" id="chat-msg-scroll">
-                          <li class="!pb-0 !pt-0">
-                            <p class="text-[#8c9097] dark:text-white/50 text-[0.6875rem] font-semibold mb-2 opacity-[0.7]"> </p>
-                          </li>
-                          <li *ngFor="let user of users" class="checkforactive">
-                            <a href="javascript:void(0);" (click)="handleClick(user)">
-                              <div class="flex items-start">
-                                <div class="me-1 leading-none">
-<!--                    <span class="avatar avatar-md {{ user.status }} me-2 avatar-rounded">-->
-<!--                      <img ngSrc="user.src" alt="img" />-->
-<!--                    </span>-->
-                                </div>
-                                <div class="flex-grow">
-                                  <p class="mb-0 font-semibold">
-                                    {{ user.username }}
-                                    <span class="ltr:float-right rtl:float-left text-[#8c9097] dark:text-white/50 font-normal text-[0.6875rem]">{{ user.status }}</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </a>
-                          </li>
-                        </ul>
-                      </ngx-simplebar>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade !border-0 chat-groups-tab" id="groups-tab-pane" aria-labelledby="groups-item" role="tabpanel" tabindex="0">
-                <ngx-simplebar [options]="options" class="chat-groups-tab">
-                <ul class="list-none mb-0 mt-2">
-                    <li class="!pb-0">
-                        <p class="text-[#8c9097] dark:text-white/50 text-[0.6875rem] font-semibold mb-1 opacity-[0.7]">MY CHAT GROUPS</p>
-                    </li>
-                    @for(data1 of GroupData;track $index){
-                        <li>
-                          <div
-                            class="flex items-center justify-between"
-                          >
-                            <div>
-                              <p class="mb-0">{{ data1.name }}</p>
-                              <p class="mb-0">
-                                <span class="badge bg-{{ data1.bg }}/10 text-{{data1.text}}">{{
-                                    data1.status
-                                  }}</span>
-                    </p>
-                  </div>
-                  <div class="avatar-list-stacked my-auto">
-                              <span class="avatar avatar-sm avatar-rounded">
-                                <img src="{{ data1.src }}" alt="img" />
-                              </span>
-                    <span class="avatar avatar-sm avatar-rounded">
-                                <img src="{{ data1.src1 }}" alt="img" />
-                              </span>
-                    <span class="avatar avatar-sm avatar-rounded">
-                                <img src="{{ data1.src2 }}" alt="img" />
-                              </span>
-                    <span class="avatar avatar-sm avatar-rounded">
-                                <img src="{{ data1.src3 }}" alt="img" />
-                              </span>
-                    <a
-                      class="avatar avatar-sm bg-primary text-fixed-white avatar-rounded"
-                      href="javascript:void(0);"
-                    >
-                      {{ data1.Qty }}
-                    </a>
-                  </div>
-                </div>
-              </li>
-            }
-
-          </ul>
-          <ul class="list-none !mb-0 mt-2 ">
-            <li class="!pb-0">
-              <p class="text-[#8c9097] dark:text-white/50 text-[0.6875rem] font-semibold mb-1 opacity-[0.7]">GROUP CHATS</p>
-            </li>
-            @for(data2 of GroupChatData;track $index){
-              <li class="{{data2.class}}">
-                <a
-                  href="javascript:void(0);"
-                  onclick="changeTheInfo(this,'Family Together &#128525;','18','online')"
-                >
-                  <div class="flex items-startp">
-                    <div class="me-1 leading-none">
-                                <span
-                                  class="avatar avatar-md {{
-                                    data2.status
-                                  }} me-2 avatar-rounded"
-                                >
-                                  <img src="{{ data2.src }}" alt="img" />
-                                </span>
-                    </div>
-                    <div class="flex-grow">
-                      <p class="mb-0 font-semibold">
-                        {{ data2.name }}
-                        <span
-                          class="ltr:float-right rtl:float-left text-[#8c9097] dark:text-white/50 font-normal text-[0.6875rem]">{{ data2.time }}</span>
-
-                      </p>
-                      <p class="text-[0.75rem] mb-0 chat-msg-typing ">
-                                  <span class="chat-msg text-truncate">{{
-                                      data2.message
-                                    }}</span>
-                        <span class="chat-read-icon ltr:float-right rtl:float-left align-middle"><i
-                          class="ri-check-double-fill"></i></span>
-                        @if(data2.badge){
-
-                          <span
-                            class="badge bg-success/10 !rounded-full !text-success ltr:float-right rtl:float-left">{{ data2.badge }}</span>
-                        }
-
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            }
-
-          </ul>
-        </ngx-simplebar>
+  <div class="chat-info border dark:border-defaultborder/10">
+    <a aria-label="anchor" href="javascript:void(0)"
+       class="ti-btn bg-secondary text-white !font-medium ti-btn-icon !rounded-full chat-add-icon">
+      <i class="ri-add-line"></i>
+    </a>
+    <div class="flex items-center justify-between w-full p-4 border-b dark:border-defaultborder/10">
+      <div>
+        <h5 class="font-semibold mb-0 text-[1.25rem] !text-defaulttextcolor dark:text-defaulttextcolor/70">Messages</h5>
       </div>
-      <div class="tab-pane fade !border-0 chat-calls-tab" id="calls-tab-pane" role="tabpanel" aria-labelledby="calls-item"  tabindex="0">
-        <ngx-simplebar>
+      <div class="hs-dropdown ti-dropdown">
+        <button aria-label="button" class="ti-btn ti-btn-icon ti-btn-secondary text-secondary"
+                type="button" aria-expanded="false">
+          <i class="ri-settings-3-line"></i>
+        </button>
+        <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
+          <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                 href="javascript:void(0);">Action</a></li>
+          <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                 href="javascript:void(0);">Another action</a></li>
+          <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                 href="javascript:void(0);">Something else here</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="chat-search p-4 border-b dark:border-defaultborder/10">
+      <div class="input-group">
+        <input type="text" class="form-control !bg-light border-0 !rounded-s-md" placeholder="Search Chat"
+               aria-describedby="button-addon2">
+        <button aria-label="button" class="ti-btn ti-btn-light !rounded-s-none !mb-0" type="button" id="button-addon2">
+          <i
+            class="ri-search-line text-[#8c9097] dark:text-white/50"></i></button>
+      </div>
+    </div>
+    <nav class="flex border-b border-defaultborder dark:border-defaultborder/10" aria-label="Tabs">
+      <a
+        class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer border-e dark:border-defaultborder/10 text-defaulttextcolor py-2 px-4 flex-grow  text-sm font-medium text-center rounded-none active"
+        id="users-item" data-hs-tab="#users-tab-pane" aria-controls="users-tab-pane">
+        <i
+          class="ri-history-line me-1 align-middle inline-block cursor-pointer w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Recent
+      </a>
+      <!--      <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer border-e dark:border-defaultborder/10 text-defaulttextcolor py-2 px-4 text-sm flex-grow font-medium text-center  rounded-none " id="groups-item" data-hs-tab="#groups-tab-pane" aria-controls="groups-tab-pane">-->
+      <!--        <i-->
+      <!--          class="ri-group-2-line me-1 align-middle inline-block w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Groups-->
+      <!--      </a>-->
+      <!--      <a class="hs-tab-active:border-b-2 hs-tab-active:border-b-primary hs-tab-active:bg-primary/10 hs-tab-active:text-primary cursor-pointer text-defaulttextcolor py-2 px-4 text-sm flex-grow font-medium text-center  rounded-none " id="calls-item" data-hs-tab="#calls-tab-pane" aria-controls="calls-tab-pane">-->
+      <!--        <i class="ri-phone-line me-1 align-middle inline-block w-[1.875rem] h-[1.875rem] p-[0.4rem] rounded-full hs-tab-active:bg-primary/10 bg-light"></i>Calls-->
+      <!--      </a>-->
+    </nav>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active !border-0 chat-users-tab" id="users-tab-pane" aria-labelledby="users-item"
+           role="tabpanel" tabindex="0">
+        <ngx-simplebar class="chat-users-tab">
+          <ul class="list-none mb-0 mt-2" id="chat-msg-scroll">
+            <li class="!pb-0 !pt-0">
+              <p class="text-[#8c9097] dark:text-white/50 text-[0.6875rem] font-semibold mb-2 opacity-[0.7]">
+                ACTIVE CHATS
+              </p>
+            </li>
 
-          <ul class="list-none !mb-0 mt-2 chat-calls-tab">
-            @for(data3 of CallData;track $index){
-              <li>
-                <div class="flex items-center">
+            <!-- Use *ngFor instead of @for -->
+            <li *ngFor="let user of users; let i = index" [class]="RecentData[0].class">
+              <a href="javascript:void(0);" (click)="handleClick(RecentData[0]); openConversation(user)">
+                <div class="flex items-start">
                   <div class="me-1 leading-none">
-                              <span class="avatar avatar-md {{data3.status}} me-2 avatar-rounded">
-                                <img src="{{ data3.src }}" alt="img" />
-                              </span>
+                    <span class="avatar avatar-md {{ RecentData[0].status }} me-2 avatar-rounded">
+                      <img [src]="RecentData[0].src" alt="img"/>
+                    </span>
                   </div>
-                  <div class="flex-grow my-auto">
-                    <p class="mb-0 font-semibold">
-                      {{ data3.name }}
-                      <span class="ms-1 incoming-call-success"
-                      ><i class="ti ti-arrow-{{data3.icon}}"></i
-                      ></span>
-                    </p>
-                    <p class="text-[0.75rem] !mb-0">
-                                <span class="text-[#8c9097] dark:text-white/50 text-truncate">{{
-                                    data3.time
-                                  }}</span>
-                    </p>
 
-                  </div>
-                  <div class="">
-                    <button
-                      aria-label="button"
-                      type="button"
-                      class="ti-btn ti-btn-sm ti-btn-icon ti-btn-primary"
-                    >
-                      <i class="ti ti-{{ data3.device }}"></i>
-                    </button>
+                  <div class="flex-grow">
+                    <p class="mb-0 font-semibold">
+                      {{ user.username }}
+                      <span class="ltr:float-right rtl:float-left text-[#8c9097] dark:text-white/50 font-normal text-[0.6875rem]">{{ RecentData[0].time }}</span>
+                    </p>
+                    <div class="flex w-full text-[0.75rem] mb-0">
+                      <span class="flex-1 basis-8/12 truncate chat-msg">{{ RecentData[3].message }}</span>
+                      <span class="flex items-center justify-end basis-2/12">
+                        <span class="relative inline-flex justify-center items-center rounded-full h-[14.7px] w-[14px] bg-secondary text-[0.625rem] text-white" id="notification-icon-badge">1</span>
+                      </span>
+                      <span class="flex items-center justify-end basis-2/12 chat-read-icon">
+                        <i class="ri-check-{{ RecentData[0].sent }}"></i>
+                      </span>
+                    </div>
+                    <span *ngIf="RecentData[0].badge" class="badge bg-success/10 !rounded-full text-success ltr:float-right rtl:float-left">{{ RecentData[0].badge }}</span>
                   </div>
                 </div>
-              </li>
-            }
-
+              </a>
+            </li>
           </ul>
         </ngx-simplebar>
       </div>
     </div>
   </div>
   <div class="main-chat-area border dark:border-defaultborder/10">
-    <div class="sm:flex items-center p-2 border-b dark:border-defaultborder/10">
+    <div class="sm:flex items-center p-2 border-b dark:border-defaultborder/10"
+         *ngIf="!selectedUserUsername.includes('none')">
       <div class="flex items-center leading-none">
                 <span class="avatar avatar-lg {{activeUser.status}} me-4 avatar-rounded chatstatusperson">
                     <img class="chatimageperson" [src]="activeUser.src" alt="img">
                 </span>
         <div class="flex-grow">
           <p class="mb-1 font-semibold text-[.875rem]">
-            <a href="javascript:void(0);"  class="chatnameperson responsive-userinfo-open !text-defaulttextcolor dark:text-defaulttextcolor/70">{{activeUser.name}}</a>
+            <a href="javascript:void(0);" (click)="detailsclick()"
+               class="chatnameperson responsive-userinfo-open !text-defaulttextcolor dark:text-defaulttextcolor/70">{{ selectedUserUsername }}</a>
           </p>
-          <p class="text-[#8c9097] dark:text-white/50 mb-0 chatpersonstatus !text-defaultsize">{{activeUser.status}}</p>
+          <p
+            class="text-[#8c9097] dark:text-white/50 mb-0 chatpersonstatus !text-defaultsize">{{ activeUser.status }}</p>
         </div>
       </div>
       <div class="flex ms-auto">
-        <button aria-label="button" type="button" class="ti-btn ti-btn-icon ti-btn-outline-light dark:border-defaultborder/10 !text-[0.95rem] !ms-2 font-semibold">
+        <button aria-label="button" type="button"
+                class="ti-btn ti-btn-icon ti-btn-outline-light dark:border-defaultborder/10 !text-[0.95rem] !ms-2 font-semibold">
           <i class="ti ti-phone dark:text-defaulttextcolor/70"></i>
         </button>
-        <button aria-label="button" type="button" class="ti-btn ti-btn-icon ti-btn-outline-light  !text-[0.95rem] !ms-2 font-semibold">
+        <button aria-label="button" type="button"
+                class="ti-btn ti-btn-icon ti-btn-outline-light  !text-[0.95rem] !ms-2 font-semibold">
           <i class="ti ti-video dark:text-defaulttextcolor/70"></i>
         </button>
-        <button aria-label="button" type="button" class="ti-btn ti-btn-icon ti-btn-outline-light  !text-[0.95rem] !ms-2 font-semibold responsive-userinfo-open">
+        <button aria-label="button" type="button"
+                class="ti-btn ti-btn-icon ti-btn-outline-light  !text-[0.95rem] !ms-2 font-semibold responsive-userinfo-open">
           <i class="ti ti-user-circle" id="responsive-chat-close"></i>
         </button>
         <div class="hs-dropdown ti-dropdown">
@@ -300,452 +140,92 @@
                    href="javascript:void(0);">Report</a></li>
           </ul>
         </div>
-        <button aria-label="button"    type="button" class="ti-btn ti-btn-icon ti-btn-outline-light  !text-[0.95rem] !ms-2 font-semibold responsive-chat-close">
+        <button aria-label="button" (click)="detailsclick()" type="button"
+                class="ti-btn ti-btn-icon ti-btn-outline-light  !text-[0.95rem] !ms-2 font-semibold responsive-chat-close">
           <i class="ri-close-line"></i>
         </button>
       </div>
     </div>
     <ngx-simplebar class="chat-content" id="main-chat-content">
-      <div>
+      <ul class="list-none">
+        <li class="chat-day-label" *ngIf="!selectedUserUsername.includes('none')">
+          <span>Today</span>
+        </li>
 
-        <ul class="list-none">
-          <li class="chat-day-label">
-            <span>Today</span>
-          </li>
-          <li class="chat-item-start">
-            <div class="chat-list-inner">
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md online avatar-rounded chatstatusperson">
+        <li *ngFor="let message of messages"
+            [ngClass]="{'chat-item-start': message.sender !== connectedUserUsername, 'chat-item-end': message.sender === connectedUserUsername}">
+          <div class="chat-list-inner">
 
-                                    <img class="chatimageperson" [src]="activeUser.src" alt="img">
-                                </span>
-              </div>
-              <div class="ms-4">
-                                <span class="chatting-user-info">
-                                    <span class="chatnameperson"
-                                    >{{activeUser.name}}</span
-                                    >
-                                     <span class="msg-sent-time">11:48PM</span>
-                                </span>
-                <div class="main-chat-msg">
-                  <div>
-                    <p class="mb-0">Nice to meet you üòÄ</p>
-                  </div>
-                </div>
+            <!-- Avatar for other users -->
+            <div *ngIf="message.sender !== connectedUserUsername" class="chat-user-profile">
+          <span class="avatar avatar-md online avatar-rounded chatstatusperson">
+            <img class="chatimageperson" [src]="'./assets/images/faces/1.jpg'" alt="img"/>
+          </span>
+            </div>
+
+            <!-- Message content and alignment -->
+            <div
+              [ngClass]="{'ms-3': message.sender !== connectedUserUsername, 'me-3': message.sender === connectedUserUsername}">
+          <span class="chatting-user-info">
+
+            <!-- Show name for other users -->
+            <span *ngIf="message.sender !== connectedUserUsername" class="chatnameperson">
+              {{ message.sender }}
+            </span>
+
+            <!-- Message sent time -->
+            <span class="msg-sent-time">
+              <!-- Show check mark only for current user's messages -->
+              <span *ngIf="message.sender === connectedUserUsername" class="chat-read-mark align-middle inline-flex">
+                <i class="ri-check-double-line"></i>
+              </span>
+              {{ message.sentOn }}
+            </span>
+
+            <!-- Show "You" for current user -->
+            <span *ngIf="message.sender === connectedUserUsername">You</span>
+          </span>
+
+              <!-- Message text -->
+              <div class="main-chat-msg">
+                <ng-container *ngIf="message.type !== 'image'">
+                  <p class="mb-0">{{ message.content }}</p>
+                </ng-container>
+
+                <!-- Uncomment this block if you want to support image messages -->
+                <!--
+                <ng-container *ngIf="message.type === 'image' && message.images">
+                  <p class="mb-0 sm:flex block">
+                    <a *ngFor="let img of message.images" class="avatar avatar-xl m-1" routerLink="/apps/gallery">
+                      <img [src]="img" class="rounded-md" />
+                    </a>
+                  </p>
+                </ng-container>
+                -->
               </div>
             </div>
-          </li>
-          <li class="chat-item-end">
-            <div class="chat-list-inner">
-              <div class="me-3">
-                                <span class="chatting-user-info">
-                                    <span class="msg-sent-time"><span class="chat-read-mark align-middle inline-flex"><i
-                                      class="ri-check-double-line"></i></span>11:50PM</span> You
-                                </span>
-                <div class="main-chat-msg">
-                  <div>
-                    <p class="mb-0">It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking at its
-                      layout</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md online avatar-rounded">
-                                    <img src="./assets/images/faces/15.jpg" alt="img">
-                                </span>
-              </div>
+
+            <!-- Avatar for the current user (optional) -->
+            <div *ngIf="message.sender === connectedUserUsername" class="chat-user-profile">
+          <span class="avatar avatar-md online avatar-rounded">
+            <img [src]="'./assets/images/faces/1.jpg'" alt="img">
+          </span>
             </div>
-          </li>
-          <li class="chat-item-start">
-            <div class="chat-list-inner">
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md {{activeUser.status}} avatar-rounded chatstatusperson">
-                                    <img class="chatimageperson"   [src]="activeUser.src" alt="img">
-                                </span>
-              </div>
-              <div class="ms-3">
-                                <span class="chatting-user-info">
-                                    <span class="chatnameperson">{{activeUser.name}}</span> <span class="msg-sent-time">11:51PM</span>
-                                </span>
-                <div class="main-chat-msg">
-                  <div>
-                    <p class="mb-0">Who are you ?</p>
-                  </div>
-                  <div>
-                    <p class="mb-0">I don't know anyone named jeremiah.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="chat-item-end">
-            <div class="chat-list-inner">
-              <div class="me-3">
-                                <span class="chatting-user-info">
-                                    <span class="msg-sent-time"><span class="chat-read-mark align-middle inline-flex"><i
-                                      class="ri-check-double-line"></i></span>11:52PM</span> You
-                                </span>
-                <div class="main-chat-msg">
-                  <div>
-                    <p class="mb-0">Some of the recent images taken are nice üëå</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md online avatar-rounded">
-                                    <img src="./assets/images/faces/15.jpg" alt="img">
-                                </span>
-              </div>
-            </div>
-          </li>
-          <li class="chat-item-start">
-            <div class="chat-list-inner">
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md {{activeUser.status}} avatar-rounded chatstatusperson">
-                                    <img class="chatimageperson"   [src]="activeUser.src" alt="img">
-                                </span>
-              </div>
-              <div class="ms-3">
-                                <span class="chatting-user-info">
-                                    <span class="chatnameperson">{{activeUser.name}}</span> <span class="msg-sent-time">11:55PM</span>
-                                </span>
-                <div class="main-chat-msg">
-                  <div>
-                    <p class="mb-0">Here are some of them have a look</p>
-                  </div>
-                  <div>
-                    <p class="mb-0 sm:flex block">
-                      <a aria-label="anchor" routerLink="/apps/gallery" class="avatar avatar-xl m-1 "><img src="./assets/images/media/media-64.jpg" alt="" class="rounded-md"></a>
-                      <a aria-label="anchor" routerLink="/apps/gallery" class="avatar avatar-xl m-1 "><img src="./assets/images/media/media-63.jpg" alt="" class="rounded-md"></a>
-                      <a aria-label="anchor" routerLink="/apps/gallery" class="avatar avatar-xl m-1 "><img src="./assets/images/media/media-62.jpg" alt="" class="rounded-md"></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="chat-item-end">
-            <div class="chat-list-inner">
-              <div class="me-4">
-                                <span class="chatting-user-info">
-                                    <span class="msg-sent-time"><span class="chat-read-mark align-middle inline-flex"><i
-                                      class="ri-check-double-line"></i></span>11:52PM</span> You
-                                </span>
-                <div class="main-chat-msg">
-                  <div class="flex">
-                    <a aria-label="anchor" href="javascript:void(0)" class="text-white"><i
-                      class="ri-play-circle-line align-middle"></i></a>
-                    <span class="mx-1 flex flex-wrap">
-                                            <svg width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                            <svg class="chat_audio" width="20" height="20">
-                                                <defs></defs>
-                                                <g transform="matrix(1,0,0,1,0,0)"><svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  data-name="Layer 3" viewBox="0 0 24 24" width="20"
-                                                  height="20">
-                                                        <path
-                                                          d="M6 19a1 1 0 0 1-1-1V6A1 1 0 0 1 7 6V18A1 1 0 0 1 6 19zM12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 12 18zM9 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0V20A1 1 0 0 1 9 21zM3 17a1 1 0 0 1-1-1V8A1 1 0 0 1 4 8v8A1 1 0 0 1 3 17zM21 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 21 16zM15 16a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v6A1 1 0 0 1 15 16zM18 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0V17A1 1 0 0 1 18 18z"
-                                                          fill="rgba(255, 255, 255, 0.5)"
-                                                        ></path>
-                                                    </svg></g>
-                                            </svg>
-                                        </span>
-                    <a aria-label="anchor" href="javascript:void(0)" class="text-white"><i
-                      class="ri-download-2-line align-middle"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md online avatar-rounded">
-                                    <img src="./assets/images/faces/15.jpg" alt="img">
-                                </span>
-              </div>
-            </div>
-          </li>
-          <li class="chat-item-start">
-            <div class="chat-list-inner">
-              <div class="chat-user-profile">
-                                <span class="avatar avatar-md {{activeUser.status}} avatar-rounded">
-                                    <img class="chatimageperson"  [src]="activeUser.src" alt="img">
-                                </span>
-              </div>
-              <div class="ms-3">
-                                <span class="chatting-user-info chatnameperson">
-                                    {{activeUser.name}} <span class="msg-sent-time">11:45PM</span>
-                                </span>
-                <div class="main-chat-msg">
-                  <div>
-                    <p class="mb-0">Happy to talk with you,chat you later üëã</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+
+          </div>
+        </li>
+      </ul>
     </ngx-simplebar>
-    <div class="chat-footer">
-      <input class="form-control w-full !rounded-md" placeholder="Type your message here..." type="text">
+    <div class="chat-footer" *ngIf="!selectedUserUsername.includes('none')">
+      <input [(ngModel)]="newMessage" class="form-control w-full !rounded-md" placeholder="Type your message here..."
+             type="text" (keyup.enter)="sendMessage()">
       <a aria-label="anchor" class="ti-btn ti-btn-icon !mx-2 ti-btn-success" href="javascript:void(0)">
         <i class="ri-emotion-line"></i>
       </a>
-      <a aria-label="anchor" class="ti-btn bg-primary text-white  ti-btn-icon ti-btn-send" href="javascript:void(0)">
+      <a aria-label="anchor" class="ti-btn bg-primary text-white  ti-btn-icon ti-btn-send" href="javascript:void(0)"
+         (click)="sendMessage()">
         <i class="ri-send-plane-2-line"></i>
       </a>
     </div>
   </div>
-  <ngx-simplebar #chatuserdetails class="chat-user-details">
-    <div id="chat-user-details">
-
-      <button  aria-label="button" type="button" class="ti-btn ti-btn-icon ti-btn-outline-light my-1 ms-2 responsive-chat-close2 xxl:hidden"> <i class="ri-close-line"></i> </button>
-      <div class="text-center mb-[3rem]">
-                <span class="avatar avatar-rounded {{activeUser.status}} avatar-xxl me-2 mb-4 chatstatusperson">
-                    <img class="chatimageperson"   [src]="activeUser.src" alt="img">
-                </span>
-        <p class="mb-1 text-[0.9375rem] font-semibold text-defaulttextcolor dark:text-defaulttextcolor/70 leading-none chatnameperson ">{{activeUser.name}}</p>
-        <p class="text-[0.75rem] text-[#8c9097] dark:text-white/50 !mb-4"><span class="chatnameperson">{{activeUser.name}}</span>&#64;gmail.com</p>
-        <p class="text-center mb-0">
-          <button type="button" aria-label="button" class="ti-btn ti-btn-icon !rounded-full ti-btn-primary"><i
-            class="ri-phone-line"></i></button>
-          <button type="button" aria-label="button" class="ti-btn ti-btn-icon !rounded-full ti-btn-primary !ms-2"><i
-            class="ri-video-add-line"></i></button>
-          <button type="button" aria-label="button" class="ti-btn ti-btn-icon !rounded-full ti-btn-primary !ms-2"><i
-            class="ri-chat-1-line"></i></button>
-        </p>
-      </div>
-      <div class="mb-[3rem]">
-        <div class="font-semibold mb-6 dark:text-defaulttextcolor/70  text-defaultsize">Shared Files
-          <span class="badge bg-primary/10 !rounded-full text-primary ms-1">4</span>
-          <span class="ltr:float-right rtl:float-left text-[0.6875rem]"><a href="javascript:void(0);" class="text-primary underline"><u>View All</u></a></span>
-        </div>
-        <ul class="shared-files list-none">
-          <li class="!mb-4">
-            <div class="flex items-center">
-              <div class="me-2">
-                                <span class="shared-file-icon">
-                                    <i class="ti ti-file-text"></i>
-                                </span>
-              </div>
-              <div class="flex-grow">
-                <p class="text-[0.75rem] font-semibold mb-0 dark:text-defaulttextcolor/70 ">Project Details.pdf</p>
-                <p class="mb-0 text-[#8c9097] dark:text-white/50 text-[0.6875rem]">24,Oct 2022 - 14:24PM</p>
-              </div>
-              <div class="!text-[1.125rem]">
-                <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-[#8c9097] dark:text-white/50"></i></a>
-              </div>
-            </div>
-          </li>
-          <li class="!mb-4">
-            <div class="flex items-center">
-              <div class="me-2">
-                                <span class="shared-file-icon">
-                                    <i class="ri-image-line"></i>
-                                </span>
-              </div>
-              <div class="flex-grow">
-                <p class="text-[0.75rem] font-semibold mb-0 dark:text-defaulttextcolor/70">Img_02.Jpg</p>
-                <p class="mb-0 text-[#8c9097] dark:text-white/50 text-[0.6875rem]">22,Oct 2022 - 10:19AM</p>
-              </div>
-              <div class="!text-[1.125rem]">
-                <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-[#8c9097] dark:text-white/50"></i></a>
-              </div>
-            </div>
-          </li>
-          <li class="!mb-4">
-            <div class="flex items-center">
-              <div class="me-2">
-                                <span class="shared-file-icon">
-                                    <i class="ri-image-line"></i>
-                                </span>
-              </div>
-              <div class="flex-grow">
-                <p class="text-[0.75rem] font-semibold mb-0 dark:text-defaulttextcolor/70">Img_15.Jpg</p>
-                <p class="mb-0 text-[#8c9097] dark:text-white/50 text-[0.6875rem]">22,Oct 2022 - 10:18AM</p>
-              </div>
-              <div class="!text-[1.125rem]">
-                <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-[#8c9097] dark:text-white/50"></i></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="flex items-center">
-              <div class="me-2">
-                                <span class="shared-file-icon">
-                                    <i class="ri-video-line"></i>
-                                </span>
-              </div>
-              <div class="flex-grow">
-                <p class="text-[0.75rem] font-semibold mb-0 dark:text-defaulttextcolor/70">Video_15_02_2022.MP4</p>
-                <p class="mb-0 text-[#8c9097] dark:text-white/50 text-[0.6875rem]">22,Oct 2022 - 10:18AM</p>
-              </div>
-              <div class="">
-                <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-[#8c9097] dark:text-white/50 !text-[1.125rem]"></i></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="mb-0">
-        <div class="font-semibold mb-4 text-defaultsize dark:text-defaulttextcolor/70">Photos &amp; Media
-          <span class="badge bg-primary/10 !rounded-full text-primary ms-1">22</span>
-          <span class="ltr:float-right rtl:float-left text-[0.6875rem]"><a href="javascript:void(0);" class="text-primary underline"><u>View All</u></a></span>
-        </div>
-        <div class="grid grid-cols-12 gap-x-[1rem]">
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-56.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-52.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-53.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-62.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-63.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-64.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-13.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-19.jpg" alt="">
-            </a>
-          </div>
-          <div class="xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-4 col-span-4">
-            <a aria-label="anchor" routerLink="/apps/gallery" class="chat-media">
-              <img src="./assets/images/media/media-20.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ngx-simplebar>
 </div>

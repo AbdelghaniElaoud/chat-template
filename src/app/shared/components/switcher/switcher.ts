@@ -2,7 +2,7 @@
 export function handleThemeUpdate(cssVars: any) {
     const root: any = document.querySelector(':root');
     const keys = Object.keys(cssVars);
-  
+
     keys.forEach((key) => {
       root.style.setProperty(key, cssVars[key]);
     });
@@ -10,7 +10,7 @@ export function handleThemeUpdate(cssVars: any) {
   // to check the value is hexa or not
   const isValidHex = (hexValue: any) =>
     /^#([A-Fa-f0-9]{3,4}){1,2}$/.test(hexValue);
-  
+
   const getChunksFromString = (st: any, chunkSize: any) =>
     st.match(new RegExp(`.{${chunkSize}}`, 'g'));
   // convert hex value to 256
@@ -68,14 +68,14 @@ export function handleThemeUpdate(cssVars: any) {
     primaryColor.forEach((item: any) => {
       const cssPropName = `--${item.getAttribute('data-id')}`;
       const cssPropName1 = `--color-${item.getAttribute('data-id1')}`;
-  
+
       handleThemeUpdate({
         [cssPropName]: hexToRgba1(color),
         [cssPropName1]: hexToRgba(color),
       });
     });
   }
-  
+
   //background theme color
   export function dynamicBgTrasnsparentPrimaryColor(
     primaryColor: any,
@@ -89,11 +89,11 @@ export function handleThemeUpdate(cssVars: any) {
         [cssPropName1]: hexToRgba(color),
         [cssPropName2]: hexToRgba2(color),
         [cssPropName3]: hexToRgba3(color),
-  
+
       });
     });
   }
-  
+
   export function localStorageBackUp() {
     let html = document.querySelector('html');
     if (localStorage.getItem('data-header-styles') == 'dark') {
@@ -101,7 +101,7 @@ export function handleThemeUpdate(cssVars: any) {
         const type: any = localStorage.getItem('ynex-theme-mode');
         html?.setAttribute('class', type);
       }
-      if (html?.setAttribute('class', 'dark')) {
+      /*if (html?.setAttribute('class', 'dark')) {
         const light = document.getElementById(
           'switcher-light'
         ) as HTMLInputElement;
@@ -113,9 +113,9 @@ export function handleThemeUpdate(cssVars: any) {
           ) as HTMLInputElement;
           light.checked = true;
         }
-      }
+      }*/
     }
-  
+
     if (localStorage.getItem('ynex-dir') == 'rtl') {
       html?.setAttribute("dir", 'rtl');
     }
@@ -159,7 +159,7 @@ export function handleThemeUpdate(cssVars: any) {
       const type: any = localStorage.getItem('ynex-header-mode');
       html?.setAttribute('data-header-styles', type);
     }
-  
+
     if (localStorage.getItem("ynex-background-mode-body")) {
       const bodytype: any = localStorage.getItem("ynex-background-mode-body")
       const darktype: any = localStorage.getItem("ynex-background-mode-dark")
@@ -168,14 +168,14 @@ export function handleThemeUpdate(cssVars: any) {
       html?.style.setProperty('--body-bg', bodytype);
       html?.style.setProperty('--dark-bg', darktype);
       html?.style.setProperty('--light', lighttype);
-  
+
       html?.setAttribute("class", event);
     }
     if (localStorage.getItem("ynexlight-background-body")) {
       const bodytype: any = localStorage.getItem("ynexlight-background-body")
       const darktype: any = localStorage.getItem("ynexlight-background-dark")
       const lighttype: any = localStorage.getItem("ynexlight-background-light")
-  
+
       html?.style.setProperty('--body-bg', bodytype);
       html?.style.setProperty('--dark-bg', darktype);
       html?.style.setProperty('--light', lighttype);
@@ -185,7 +185,7 @@ export function handleThemeUpdate(cssVars: any) {
       const bodytype: any = localStorage.getItem("ynexlight-background-body")
       const darktype: any = localStorage.getItem("ynexlight-background-dark")
       const lighttype: any = localStorage.getItem("ynexlight-background-light")
-  
+
       html?.style.setProperty('--body-bg', bodytype);
       html?.style.setProperty('--dark-bg', darktype);
       html?.style.setProperty('--light', lighttype);
@@ -220,8 +220,8 @@ export function handleThemeUpdate(cssVars: any) {
     }
     if (localStorage.getItem("ynexlight-primary-color")) {
       const type: any = localStorage.getItem("ynexlight-primary-color");
-  
-  
+
+
       html?.style.setProperty('--primary-rgb', type);
       html?.style.setProperty('-primary', type);
     }
@@ -231,4 +231,3 @@ export function handleThemeUpdate(cssVars: any) {
       html?.style.setProperty('--primary', type);
     }
   }
-  

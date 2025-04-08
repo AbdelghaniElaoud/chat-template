@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import { Menu, NavService } from '../../services/nav.service';
 import {AuthService} from "../../services/authentication/auth.service";
+import {SessionStorageService} from "../../services/sessionStorage/session.storage.service";
 interface Item {
   id: number;
   name: string;
@@ -21,7 +22,10 @@ export class HeaderComponent implements OnInit{
   username! : string;
 
   constructor(public navServices: NavService,
-    private elementRef: ElementRef,private renderer:Renderer2, private authService : AuthService) {
+    private elementRef: ElementRef,
+    private renderer:Renderer2,
+    private sessionStorageService : SessionStorageService,
+    private authService : AuthService) {
   }
   isFullScreen = false;
   fullScreenIconVisible = true;
@@ -124,7 +128,7 @@ export class HeaderComponent implements OnInit{
         this.items = menuItems;
       });
 
-      this.username = this.authService.username;
+      this.username = this.sessionStorageService.getUserUsername();
     }
 
   Search(searchText: string) {

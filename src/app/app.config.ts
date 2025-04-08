@@ -15,15 +15,19 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ToastrModule } from 'ngx-toastr';
 import { NgDragDropModule } from 'ng-drag-drop';
-import {provideHttpClient} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {AppHttpInterceptor} from "./shared/interceptors/app-http.interceptor";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(App_Route),RouterOutlet,ColorPickerModule,ColorPickerService,provideAnimations(),  AngularFireModule,
+  providers: [
+    provideRouter(App_Route),RouterOutlet,ColorPickerModule,ColorPickerService,provideAnimations(),  AngularFireModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     provideHttpClient(),
     BrowserModule,
     AngularFireAuthModule,
+    provideHttpClient(withInterceptorsFromDi()),
+    {provide : HTTP_INTERCEPTORS, useClass : AppHttpInterceptor, multi : true},
   importProvidersFrom(CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,

@@ -4,6 +4,7 @@ import {  Lightbox, LightboxModule } from 'ng-gallery/lightbox';
 import { SharedModule } from '../../../shared/shared.module';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import {AuthService} from "../../../shared/services/authentication/auth.service";
+import {SessionStorageService} from "../../../shared/services/sessionStorage/session.storage.service";
 
 @Component({
   selector: 'app-profile',
@@ -14,13 +15,13 @@ import {AuthService} from "../../../shared/services/authentication/auth.service"
 })
 export class ProfileComponent implements OnInit{
   username! : string;
-  constructor(public gallery: Gallery, public lightbox: Lightbox, public authService : AuthService) {}
+  constructor(public gallery: Gallery, public lightbox: Lightbox, private sessionStorageService : SessionStorageService) {}
   items: GalleryItem[] = [];
 
   imageData=DATA;
   ngOnInit() {
     /** Basic Gallery Example */
-    this.username = this.authService.username;
+    this.username = this.sessionStorageService.getUserUsername();
     // Creat gallery items
     this.items = this.imageData.map(
       (item) => new ImageItem({ src: item.srcUrl, thumb: item.previewUrl })

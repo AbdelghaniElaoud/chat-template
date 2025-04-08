@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
-import {jwtDecode} from 'jwt-decode';
 import {Router} from "@angular/router";
 import {environment} from "../../../../environments/environment";
+import {SessionStorageService} from "../sessionStorage/session.storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,7 @@ export class AuthService {
 
   isAuthenticated : boolean = false;
 
-  roles : any;
-  username:any;
-  accessToken! : any;
-
-  constructor(private http: HttpClient, private router : Router) { }
+  constructor(private http: HttpClient, private router : Router, private sessionStorageService : SessionStorageService) { }
 
   public login(username : string, password : string){
     let options = {
@@ -29,32 +25,17 @@ export class AuthService {
 
   loadProfile(data: any) {
     this.isAuthenticated = true;
-    this.accessToken = data["access-token"];
 
-    let jwtDecoded:any = jwtDecode(this.accessToken);
-
-    this.username = jwtDecoded.sub;
-    this.roles = jwtDecoded.scope;
-
-    window.localStorage.setItem("jwt-token", this.accessToken)
   }
 
   logout() {
     this.isAuthenticated = false;
-    this.roles = undefined;
-    this.username = undefined;
-    this.accessToken = undefined;
-    window.localStorage.removeItem("jwt-token");
+    this.sessionStorageService.clear();
     this.router.navigateByUrl("auth/login");
   }
 
-  loadTokenFromLocalStorage() {
-    let token = window.localStorage.getItem("jwt-token");
-
-    if (token){
-      this.loadProfile({
-        "access-token":token
-      })
-    }
+  public refreshToken(refreshToken : string){
+    return this.http.post(environment.backendHost + "/auth/refresh-token", refreshToken);
   }
+
 }
