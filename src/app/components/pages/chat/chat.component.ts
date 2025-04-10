@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, PipeTransform, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, PipeTransform, ViewChild} from '@angular/core';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../../shared/shared.module';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
@@ -20,16 +20,18 @@ import {interval, Subscription} from "rxjs";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit{
+export class ChatComponent implements OnInit, OnDestroy{
   options = { autoHide: false, scrollbarMinSize: 100 };
   @ViewChild('chatuserdetails') chatuserdetails!: ElementRef;
   users: User[] = [];
+  conversations: Conversation[] = [];
   selectedConversation : Conversation;
   selectedUserUsername : string = 'none';
   messages : Message[] = [];
   connectedUserUsername : string;
   newMessage: string = '';
-  private pollingSubscription!: Subscription;
+  private pollingSubscriptionForMessages!: Subscription;
+  private pollingSubscriptionForConversations!: Subscription;
 
   RecentData = [
     {
@@ -323,36 +325,34 @@ export class ChatComponent implements OnInit{
   ngOnInit(){
     this.loadUsers();
     this.connectedUserUsername = this.sessionStorageService.getUserUsername();
+    this.loadConversations();
+    this.startPollingConversations();
 
   }
 
-  startPolling(): void {
-    this.pollingSubscription = interval(2000).subscribe(() => {
-        this.checkForNewMessages();
+  startPollingMessages(): void {
+    this.stopPollingMessages();
+    this.pollingSubscriptionForMessages = interval(2000).subscribe(() => {
+        this.loadMessages();
+    });
+  }
+  startPollingConversations(): void {
+    this.stopPollingConversations();
+    this.pollingSubscriptionForConversations = interval(2000).subscribe(() => {
+        this.loadConversations();
     });
   }
 
-  checkForNewMessages(): void {
-    if (!this.selectedConversation ) return;
 
-    const params = {
-      code: this.selectedConversation.code,
-      page: {
-        page: 0,
-        size: 1,
-        sort: 'sentOn,desc'
-      }
-    };
-
-    this.messageService.getMessages(params).subscribe({
+  loadConversations(): void {
+    this.conversationService.getAllConversations().subscribe({
       next: (data) => {
-        if (data.content.length > 0) {
-          const latestMessage = data.content[0];
-
-            this.loadNewMessages();
-        }
+        this.conversations = this.formatConversationsLastTime(data);
+        //this.conversations.filter(conversation => conversation.lastMessageSentTime = this.formatTime(conversation.lastMessageSentTime))
       },
-      error: (err) => console.error('Failed to check for new messages:', err)
+      error: (err) => {
+        console.error('Failed to load conversations:', err);
+      }
     });
   }
 
@@ -390,6 +390,7 @@ export class ChatComponent implements OnInit{
 
 
   public loadUsers(){
+    console.log("The load users method is called")
     const params = {
       code: this.sessionStorageService.getUserCode(),
       page: { page: 0, size: 20 }
@@ -400,7 +401,27 @@ export class ChatComponent implements OnInit{
     });
   }
 
-  openConversation(user: User): void {
+  openConversationListedAsConversation(conversation: Conversation): void {
+
+    this.conversationService.getConversationByCode(conversation.code).subscribe({
+      next: (data) => {
+        this.selectedConversation = data;
+        this.selectedUserUsername = data.recipientFullName;
+        console.log("The data between the two users is " + JSON.stringify(data));
+        this.loadMessages();
+      },
+      error: (err) => {
+        console.error("Error loading conversation:", err);
+
+        alert("There is no conversation between users");
+      }
+    });
+
+     this.loadMessages();
+     this.startPollingMessages();
+  }
+
+  openConversationListedAsUser(user: User): void {
 
     this.selectedUserUsername = user.username;
     console.log("The open conversation method is called")
@@ -418,15 +439,24 @@ export class ChatComponent implements OnInit{
         alert("There is no conversation between users");
       }
     });
-    // this.messages = [];
-    // this.currentPage = 0;
-    // this.hasMoreMessages = true;
-    // this.lastMessageId = null;
-    // this.isAtBottom = true;
-    //
-    // // Load initial messages and start polling
-     this.loadMessages();
-     this.startPolling();
+    this.loadMessages();
+    this.users = this.users.filter(userList => userList !== user);
+    this.startPollingMessages();
+  }
+
+
+  formatConversationsLastTime(conversations: any[]): any[] {
+    return conversations.map((conversation) => {
+      if (conversation.lastMessageSentTime != null){
+        return {
+          ...conversation,
+          lastMessageSentTime: this.formatTime(conversation.lastMessageSentTime),
+        };
+      }
+      return {
+        ...conversation
+      };
+    });
   }
 
   formatMessagesTime(messages: any[]): any[] {
@@ -451,16 +481,16 @@ export class ChatComponent implements OnInit{
     const ampm = hours >= 12 ? 'PM' : 'AM';
 
     hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
+    hours = hours ? hours : 12;
 
-    // Check if the message date is different from today
+
     if (messageDateOnly.toISOString() !== todayDateOnly.toISOString()) {
-      // Include the day, month, and year
+
       const options: Intl.DateTimeFormatOptions = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
       const formattedDate = date.toLocaleDateString(undefined, options);
       return `${formattedDate} ${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
     } else {
-      // Only include the time
+
       return `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
     }
   }
@@ -469,7 +499,7 @@ export class ChatComponent implements OnInit{
   loadMessages(): void {
     if (!this.selectedConversation ) return;
 
-    //this.isLoading = true;
+
     const params = {
       code: this.selectedConversation.code,
       page: {
@@ -482,7 +512,7 @@ export class ChatComponent implements OnInit{
     this.messageService.getMessages(params).subscribe({
       next: (data) => {
         this.messages = this.formatMessagesTime(data.content).reverse();
-        console.log("The messages", data.content);
+        //console.log("The messages", data.content);
       },
       error: (err) => {
         console.error('Failed to load messages:', err);
@@ -508,6 +538,7 @@ export class ChatComponent implements OnInit{
         this.newMessage = '';
         // Check for new messages which will include the one we just sent
         //this.checkForNewMessages();
+        this.loadMessages();
       },
       error: (err) => console.error('Failed to send message:', err)
     });
@@ -533,6 +564,23 @@ export class ChatComponent implements OnInit{
   }
   removedetails1() {
     document.querySelector('.main-chart-wrapper ')?.classList.remove('responsive-chat-open');
+  }
+
+  ngOnDestroy(): void {
+    this.stopPollingMessages();
+    this.stopPollingConversations();
+  }
+
+  stopPollingMessages(): void {
+    if (this.pollingSubscriptionForMessages) {
+      this.pollingSubscriptionForMessages.unsubscribe();
+    }
+  }
+
+  stopPollingConversations(): void {
+    if (this.pollingSubscriptionForConversations) {
+      this.pollingSubscriptionForConversations.unsubscribe();
+    }
   }
 
 }

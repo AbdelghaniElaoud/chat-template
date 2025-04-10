@@ -1,3 +1,5 @@
+import {User} from "./user.model";
+
 /**
  * Represents a conversation entity with its associated properties.
  *
@@ -11,4 +13,10 @@ export interface Conversation {
   code: number;
   name: string;
   createdOn: string;
+  users: User[],
+  lastMessage: string;
+  unreadMessagesCount: number;
+  lastMessageSentTime: Date;
+  lastMessageReceived: boolean;
+  recipientFullName: string;
 }

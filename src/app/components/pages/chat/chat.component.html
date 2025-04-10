@@ -58,9 +58,44 @@
               </p>
             </li>
 
-            <!-- Use *ngFor instead of @for -->
+            <ul *ngIf="conversations && conversations.length > 0">
+            <li *ngFor="let conversation of conversations; let i = index" [class]="RecentData[0].class">
+              <a href="javascript:void(0);" (click)="handleClick(RecentData[0]); openConversationListedAsConversation(conversation)">
+
+                <div class="flex items-start">
+                  <div class="me-1 leading-none">
+                    <span class="avatar avatar-md {{ RecentData[0].status }} me-2 avatar-rounded">
+                      <img [src]="RecentData[0].src" alt="img"/>
+                    </span>
+                  </div>
+
+                  <div class="flex-grow">
+                    <p class="mb-0 font-semibold">
+                      {{ conversation.recipientFullName }}
+                      <span class="ltr:float-right rtl:float-left text-[#8c9097] dark:text-white/50 font-normal text-[0.6875rem]" *ngIf="conversation.lastMessageSentTime">{{ conversation.lastMessageSentTime }}</span>
+                    </p>
+                    <div class="flex w-full text-[0.75rem] mb-0">
+                      <span class="flex-1 basis-8/12 truncate chat-msg" *ngIf="conversation.lastMessage">{{ conversation.lastMessage }}</span>
+                      <span class="flex items-center justify-end basis-2/12">
+                        <span class="relative inline-flex justify-center items-center rounded-full h-[14.7px] w-[14px] bg-secondary text-[0.625rem] text-white" id="notification-icon-badge" *ngIf="conversation.unreadMessagesCount && !conversation.lastMessageReceived" >
+                          {{conversation.unreadMessagesCount}}
+                        </span>
+                      </span>
+                      <span class="flex items-center justify-end basis-2/12 chat-read-icon" *ngIf="conversation.unreadMessagesCount === 0 && conversation.lastMessageReceived">
+                        <i class="ri-check-{{ RecentData[0].sent }}"></i>
+                      </span>
+                    </div>
+                    <span *ngIf="RecentData[0].badge" class="badge bg-success/10 !rounded-full text-success ltr:float-right rtl:float-left">{{ RecentData[0].badge }}</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            </ul>
+            <ul *ngIf="users && users.length > 0">
             <li *ngFor="let user of users; let i = index" [class]="RecentData[0].class">
-              <a href="javascript:void(0);" (click)="handleClick(RecentData[0]); openConversation(user)">
+              <a href="javascript:void(0);" (click)="handleClick(RecentData[0]); openConversationListedAsUser(user)">
+<!--                -->
+
                 <div class="flex items-start">
                   <div class="me-1 leading-none">
                     <span class="avatar avatar-md {{ RecentData[0].status }} me-2 avatar-rounded">
@@ -73,20 +108,12 @@
                       {{ user.username }}
                       <span class="ltr:float-right rtl:float-left text-[#8c9097] dark:text-white/50 font-normal text-[0.6875rem]">{{ RecentData[0].time }}</span>
                     </p>
-                    <div class="flex w-full text-[0.75rem] mb-0">
-                      <span class="flex-1 basis-8/12 truncate chat-msg">{{ RecentData[3].message }}</span>
-                      <span class="flex items-center justify-end basis-2/12">
-                        <span class="relative inline-flex justify-center items-center rounded-full h-[14.7px] w-[14px] bg-secondary text-[0.625rem] text-white" id="notification-icon-badge">1</span>
-                      </span>
-                      <span class="flex items-center justify-end basis-2/12 chat-read-icon">
-                        <i class="ri-check-{{ RecentData[0].sent }}"></i>
-                      </span>
-                    </div>
                     <span *ngIf="RecentData[0].badge" class="badge bg-success/10 !rounded-full text-success ltr:float-right rtl:float-left">{{ RecentData[0].badge }}</span>
                   </div>
                 </div>
               </a>
             </li>
+            </ul>
           </ul>
         </ngx-simplebar>
       </div>
@@ -177,7 +204,8 @@
             <span class="msg-sent-time">
               <!-- Show check mark only for current user's messages -->
               <span *ngIf="message.sender === connectedUserUsername" class="chat-read-mark align-middle inline-flex">
-                <i class="ri-check-double-line"></i>
+                <i  *ngIf="message.read" class="ri-check-double-line"></i>
+                <i *ngIf="!message.read" class="ri-check-double-fill" style="color: grey;"></i>
               </span>
               {{ message.sentOn }}
             </span>
@@ -191,17 +219,6 @@
                 <ng-container *ngIf="message.type !== 'image'">
                   <p class="mb-0">{{ message.content }}</p>
                 </ng-container>
-
-                <!-- Uncomment this block if you want to support image messages -->
-                <!--
-                <ng-container *ngIf="message.type === 'image' && message.images">
-                  <p class="mb-0 sm:flex block">
-                    <a *ngFor="let img of message.images" class="avatar avatar-xl m-1" routerLink="/apps/gallery">
-                      <img [src]="img" class="rounded-md" />
-                    </a>
-                  </p>
-                </ng-container>
-                -->
               </div>
             </div>
 
